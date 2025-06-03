@@ -68,3 +68,8 @@ Deno.test("test une seule ligne avec trois mine non côte à côte", () => {
     let champ = "*.*.*.";
     assertEquals(minesweeper(champ), "*2*2*1");
 });
+
+Deno.test("test une seule ligne avec remplit de mine", () => {
+    let champ = "******";
+    assertEquals(minesweeper(champ), "******");
+});
