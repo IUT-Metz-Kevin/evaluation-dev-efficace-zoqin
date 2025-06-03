@@ -6,7 +6,7 @@ function minesweeper(champ: string) {
     let champTable : number[] = []
     for(let i = 0; i < champ.length; i++) {
         if(champ[i] === ".") {
-            console.log(champTable[i])
+            //console.log(champTable[i])
 
             champTable.push(0)
 
@@ -44,11 +44,14 @@ function minesweeper(champ: string) {
 
 
 //TEST
+//champ vide
 Deno.test("test champ vide", () => {
     let champ = "......\n......\n......";
     assertEquals(minesweeper(champ), "000000\n000000\n000000");
 });
 
+
+//Une seule ligne
 Deno.test("test une seule ligne avec une seule mine", () => {
     let champ = "...*..";
     assertEquals(minesweeper(champ), "001*10");
@@ -74,6 +77,7 @@ Deno.test("test une seule ligne avec remplit de mine", () => {
     assertEquals(minesweeper(champ), "******");
 });
 
+//deux ligne
 Deno.test("test deux ligne avec une seule bombe", () => {
     let champ = "......\n...*..";
     assertEquals(minesweeper(champ), "001110\n001*10");
