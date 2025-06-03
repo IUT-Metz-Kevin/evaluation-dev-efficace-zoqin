@@ -1,4 +1,5 @@
 import { assertEquals } from "jsr:@std/assert";
+
 function minesweeper(champ: string) {
     let champNumero = ""
     for(let i = 0; i < champ.length; i++) {
