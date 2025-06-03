@@ -2,9 +2,11 @@ import { assertEquals } from "jsr:@std/assert";
 function minesweeper(champ: string) {
     let champNumero = ""
     for(let c of champ) {
-        console.log(c)
-        champNumero += "0";
-        console.log(c)
+        if(c === ".") {
+            champNumero += "0";
+        } else {
+            champNumero += "\n"
+        }
     }
     console.log(champ)
     return champNumero
