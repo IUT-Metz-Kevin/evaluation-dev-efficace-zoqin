@@ -4,8 +4,10 @@ function minesweeper(champ: string) {
     for(let c of champ) {
         if(c === ".") {
             champNumero += "0";
+        } else if(c === "*") {
+            champNumero += "*";
         } else {
-            champNumero += "\n"
+            champNumero += "\n";
         }
     }
     console.log(champ)
