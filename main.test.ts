@@ -2,6 +2,7 @@ import { assertEquals } from "jsr:@std/assert";
 
 
 //FUNCTION
+//FONCTION APPELE
 function conversionChampVersMatrice(champ: string): string[][] {
     let champMatrice: string[][] = []
 
@@ -97,6 +98,7 @@ function conversionString(minesweeperNumerique: number[][]): string {
     return champNumero.slice(0, champNumero.length-1)
 }
 
+//MAIN
 function minesweeper(champ: string) {
 
     let champMatrice = conversionChampVersMatrice(champ)
