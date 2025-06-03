@@ -6,13 +6,15 @@ function minesweeper(champ: string) {
     let champTable : number[] = []
     for(let i = 0; i < champ.length; i++) {
         if(champ[i] === ".") {
-            if( (champ[i+1] === "*") || (champ[i-1] === "*") ) {
+            if( !(champ[i+1] === "*") && !(champ[i-1] === "*") ) {
+                champTable.push(0);
+                
+            } else {
+                console.log(champTable[i])
                 if(champTable[i] && champTable[i] === 1) {
                     champTable[i] = 2
                 }
                 champTable.push(1);
-            } else {
-                champTable.push(0);
             }
         } else if(champ[i] === "*") {
             champTable.push(-1);
@@ -20,6 +22,8 @@ function minesweeper(champ: string) {
             champTable.push(-2);
         }
     }
+
+    console.log(champTable)
 
     let champNumero = ""
     for(let element of champTable) {
