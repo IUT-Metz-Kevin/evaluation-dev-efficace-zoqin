@@ -32,6 +32,7 @@ function minesweeper(champ: string) {
                 //console.log(champTable[i])
 
                 tableConversionTemporaire.push(0)
+                //si il existe une ligne au dessus on teste les valeurs adjacante
                 if(champMatrice[y-1]){
                     if(champMatrice[y-1][x-1] === "*") {
                         tableConversionTemporaire[x] += 1
@@ -52,6 +53,7 @@ function minesweeper(champ: string) {
                     tableConversionTemporaire[x] += 1
                 }
 
+                //si il existe une ligne au dessous on teste les valeurs adjacante
                 if(champMatrice[y+1]) {
                     if(champMatrice[y+1][x-1] === "*") {
                         tableConversionTemporaire[x] += 1
