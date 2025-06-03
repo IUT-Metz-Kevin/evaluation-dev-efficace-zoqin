@@ -1,5 +1,7 @@
 import { assertEquals } from "jsr:@std/assert";
 
+
+//FUNCTION
 function minesweeper(champ: string) {
     let champNumero = ""
     for(let i = 0; i < champ.length; i++) {
@@ -15,6 +17,8 @@ function minesweeper(champ: string) {
     return champNumero
 }
 
+
+//TEST
 Deno.test("test champ vide", () => {
     let champ = "......\n......\n......";
     assertEquals(minesweeper(champ), "000000\n000000\n000000");
