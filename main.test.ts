@@ -7,6 +7,9 @@ function minesweeper(champ: string) {
     for(let i = 0; i < champ.length; i++) {
         if(champ[i] === ".") {
             if( (champ[i+1] === "*") || (champ[i-1] === "*") ) {
+                if(champNumero[i] && champNumero[i] === "1") {
+                    champNumero[i] = "2"
+                }
                 champNumero += "1";
             } else {
                 champNumero += "0";
