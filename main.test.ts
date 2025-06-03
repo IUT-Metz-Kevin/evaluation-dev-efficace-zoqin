@@ -145,10 +145,14 @@ Deno.test("test deux ligne avec trois bombe non adjacante", () => {
     assertEquals(minesweeper(champ), "1*212*\n112*21");
 });
 
+Deno.test("test deux ligne avec une ligne remplis de bombe", () => {
+    let champ = "******\n......";
+    assertEquals(minesweeper(champ), "******\n233332");
+});
 
 
-// .*...*
-// ...*..
+// ******
+// ......
 
-// 1*212*
-// 112*21
+// ******
+// 233332
