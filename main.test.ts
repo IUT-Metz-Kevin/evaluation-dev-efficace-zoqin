@@ -1,12 +1,13 @@
 import { assertEquals } from "jsr:@std/assert";
 function minesweeper(champ: string) {
+    let champNumero = ""
     for(let c of champ) {
         console.log(c)
-        c = "0";
+        champNumero += "0";
         console.log(c)
     }
     console.log(champ)
-    return champ
+    return champNumero
 }
 
 Deno.test("test champ vide", () => {
