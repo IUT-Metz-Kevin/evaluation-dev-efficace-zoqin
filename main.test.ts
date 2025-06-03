@@ -3,12 +3,12 @@ import { assertEquals } from "jsr:@std/assert";
 
 //FUNCTION
 function minesweeper(champ: string) {
-    let champMatrice : string[][] = []
+    let champMatrice: string[][] = []
 
-    let tableTemporaire : string[] = []
+    let tableTemporaire: string[] = []
 
-    for(let c of champ) {
-        if(c !== "\n") {
+    for (let c of champ) {
+        if (c !== "\n") {
             tableTemporaire.push(c)
         } else {
             champMatrice.push(tableTemporaire)
@@ -19,37 +19,56 @@ function minesweeper(champ: string) {
     champMatrice.push(tableTemporaire)
 
     //console.log(champMatrice)
-    
-    let matriceConversion : number[][] = []
+
+    let matriceConversion: number[][] = []
+    let tableConversionTemporaire: number[] = []
 
     //on parcours une matrice donc j'utilise x, y comme un plan en 2 dimension
-    for(let y = 0; y<champMatrice.length; y++) {
-        for(let x = 0; x<champMatrice[y].length; x++) {
-            if(champMatrice[y][x]) {
+    for (let y = 0; y < champMatrice.length; y++) {
+        //console.log(champMatrice.length)
+        for (let x = 0; x < champMatrice[y].length; x++) {
+            //console.log(champMatrice[y].length)
+            if (champMatrice[y][x] === ".") {
+                //console.log(champTable[i])
 
+                tableConversionTemporaire.push(0)
+
+                if (champMatrice[y][x + 1] === "*") {
+                    tableConversionTemporaire[x] += 1
+                }
+
+                if (champMatrice[y][x - 1] === "*") {
+                    tableConversionTemporaire[x] += 1
+                }
+
+            } else if (champMatrice[y][x] === "*") {
+                tableConversionTemporaire.push(-1);
             }
-            }
+        }
+        matriceConversion.push(tableConversionTemporaire)
+        tableConversionTemporaire = []
     }
 
+    console.log(matriceConversion)
 
 
-    let tableConversion : number[] = []
-    
-    for(let i = 0; i < champ.length; i++) {
-        if(champ[i] === ".") {
+    let tableConversion: number[] = []
+
+    for (let i = 0; i < champ.length; i++) {
+        if (champ[i] === ".") {
             //console.log(champTable[i])
 
             tableConversion.push(0)
 
-            if(champ[i+1] === "*") {
+            if (champ[i + 1] === "*") {
                 tableConversion[i]++
             }
 
-            if(champ[i-1] === "*") {
+            if (champ[i - 1] === "*") {
                 tableConversion[i]++
             }
 
-        } else if(champ[i] === "*") {
+        } else if (champ[i] === "*") {
             tableConversion.push(-1);
         } else {
             tableConversion.push(-2);
@@ -59,15 +78,15 @@ function minesweeper(champ: string) {
     console.log(tableConversion)
 
     let champNumero = ""
-    for(let element of tableConversion) {
-        if(element === -1) {
+    for (let element of tableConversion) {
+        if (element === -1) {
             champNumero += "*"
         } else if (element === -2) {
             champNumero += "\n"
         } else {
             champNumero += element.toString()
         }
-        
+
     }
     console.log(champNumero)
     return champNumero
