@@ -7,13 +7,17 @@ function minesweeper(champ: string) {
     for(let i = 0; i < champ.length; i++) {
         if(champ[i] === ".") {
             console.log(champTable[i])
+
             champTable.push(0)
+
             if(champ[i+1] === "*") {
                 champTable[i]++
             }
+
             if(champ[i-1] === "*") {
                 champTable[i]++
             }
+
         } else if(champ[i] === "*") {
             champTable.push(-1);
         } else {
@@ -58,4 +62,9 @@ Deno.test("test une seule ligne avec deux mine", () => {
 Deno.test("test une seule ligne avec deux mine non côte à côte", () => {
     let champ = "..*.*.";
     assertEquals(minesweeper(champ), "01*2*1");
+});
+
+Deno.test("test une seule ligne avec trois mine non côte à côte", () => {
+    let champ = "*.*.*.";
+    assertEquals(minesweeper(champ), "*2*2*1");
 });
