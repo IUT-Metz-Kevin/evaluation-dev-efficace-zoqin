@@ -3,39 +3,53 @@ import { assertEquals } from "jsr:@std/assert";
 
 //FUNCTION
 function minesweeper(champ: string) {
-    let champMatrice : string[][] = []
+    let champMatrice: string[][] = []
 
-    let tableTemporaire : string[] = []
-    for(let c of champ) {
-        if(c !== "\n") {
+    let tableTemporaire: string[] = []
+
+    for (let c of champ) {
+        if (c !== "\n") {
             tableTemporaire.push(c)
         } else {
             champMatrice.push(tableTemporaire)
             tableTemporaire = []
         }
     }
+
     champMatrice.push(tableTemporaire)
 
-    console.log(champMatrice)
-    
-    
-    let TableConversion : number[] = []
-    
-    for(let i = 0; i < champ.length; i++) {
-        if(champ[i] === ".") {
+    //console.log(champMatrice)
+
+    let matriceConversion: number[][] = []
+
+    //on parcours une matrice donc j'utilise x, y comme un plan en 2 dimension
+    for (let y = 0; y < champMatrice.length; y++) {
+        for (let x = 0; x < champMatrice[y].length; x++) {
+            if (champMatrice[y][x]) {
+
+            }
+        }
+    }
+
+
+
+    let tableConversion: number[] = []
+
+    for (let i = 0; i < champ.length; i++) {
+        if (champ[i] === ".") {
             //console.log(champTable[i])
 
             TableConversion.push(0)
 
-            if(champ[i+1] === "*") {
+            if (champ[i + 1] === "*") {
                 TableConversion[i]++
             }
 
-            if(champ[i-1] === "*") {
+            if (champ[i - 1] === "*") {
                 TableConversion[i]++
             }
 
-        } else if(champ[i] === "*") {
+        } else if (champ[i] === "*") {
             TableConversion.push(-1);
         } else {
             TableConversion.push(-2);
@@ -45,15 +59,15 @@ function minesweeper(champ: string) {
     console.log(TableConversion)
 
     let champNumero = ""
-    for(let element of TableConversion) {
-        if(element === -1) {
+    for (let element of TableConversion) {
+        if (element === -1) {
             champNumero += "*"
         } else if (element === -2) {
             champNumero += "\n"
         } else {
             champNumero += element.toString()
         }
-        
+
     }
     console.log(champNumero)
     return champNumero
