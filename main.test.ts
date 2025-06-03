@@ -166,6 +166,10 @@ Deno.test("test trois ligne avec une cellule entouré de bombe", () => {
     assertEquals(minesweeper(champ), "2***20\n3*8*30\n2***20");
 });
 
+Deno.test("test trois ligne github", () => {
+    let champ = ".*.**.\n....*.\n..*...";
+    assertEquals(minesweeper(champ), "1*2**2\n1234*2\n01*211");
+});
 
 
 // .***..
