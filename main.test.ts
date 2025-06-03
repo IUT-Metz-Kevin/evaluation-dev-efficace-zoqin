@@ -6,7 +6,11 @@ function minesweeper(champ: string) {
     let champNumero = ""
     for(let i = 0; i < champ.length; i++) {
         if(champ[i] === ".") {
-            champNumero += "0";
+            if( (champ[i+1] === "*") || (champ[i-1] === "*") ) {
+                champNumero += "1";
+            } else {
+                champNumero += "0";
+            }
         } else if(champ[i] === "*") {
             champNumero += "*";
         } else {
