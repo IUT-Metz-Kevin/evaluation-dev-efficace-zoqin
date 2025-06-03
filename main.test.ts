@@ -3,32 +3,36 @@ import { assertEquals } from "jsr:@std/assert";
 
 //FUNCTION
 function minesweeper(champ: string) {
-    let champTable : number[] = []
+    let champTable : number[][] = []
+    
+    
+    let TableConversion : number[] = []
+    
     for(let i = 0; i < champ.length; i++) {
         if(champ[i] === ".") {
             //console.log(champTable[i])
 
-            champTable.push(0)
+            TableConversion.push(0)
 
             if(champ[i+1] === "*") {
-                champTable[i]++
+                TableConversion[i]++
             }
 
             if(champ[i-1] === "*") {
-                champTable[i]++
+                TableConversion[i]++
             }
 
         } else if(champ[i] === "*") {
-            champTable.push(-1);
+            TableConversion.push(-1);
         } else {
-            champTable.push(-2);
+            TableConversion.push(-2);
         }
     }
 
-    console.log(champTable)
+    console.log(TableConversion)
 
     let champNumero = ""
-    for(let element of champTable) {
+    for(let element of TableConversion) {
         if(element === -1) {
             champNumero += "*"
         } else if (element === -2) {
