@@ -3,7 +3,20 @@ import { assertEquals } from "jsr:@std/assert";
 
 //FUNCTION
 function minesweeper(champ: string) {
-    let champTable : number[][] = []
+    let champMatrice : string[][] = []
+
+    let tableTemporaire : string[] = []
+    for(let c of champ) {
+        if(c !== "\n") {
+            tableTemporaire.push(c)
+        } else {
+            champMatrice.push(tableTemporaire)
+            tableTemporaire = []
+        }
+    }
+    champMatrice.push(tableTemporaire)
+
+    console.log(champMatrice)
     
     
     let TableConversion : number[] = []
