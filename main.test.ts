@@ -51,6 +51,20 @@ function minesweeper(champ: string) {
 
     console.log(matriceConversion)
 
+    let champNumero = ""
+
+    for(let tableActuelle of matriceConversion) {
+        for(let element of tableActuelle) {
+            if(element === -1) {
+                champNumero += "*"
+            } else {
+                champNumero += element.toString()
+            }
+        }
+        champNumero += "\n"
+    }
+
+    return champNumero.slice(0,champNumero.length-1)
 
     let tableConversion: number[] = []
 
@@ -77,7 +91,6 @@ function minesweeper(champ: string) {
 
     console.log(tableConversion)
 
-    let champNumero = ""
     for (let element of tableConversion) {
         if (element === -1) {
             champNumero += "*"
