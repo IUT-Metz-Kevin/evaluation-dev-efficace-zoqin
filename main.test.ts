@@ -12,18 +12,6 @@ function minesweeper(champ: string) {
     }
 
     return champNumero
-
-    for(let c of champ) {
-        if(c === ".") {
-            champNumero += "0";
-        } else if(c === "*") {
-            champNumero += "*";
-        } else {
-            champNumero += "\n";
-        }
-    }
-    console.log(champ)
-    return champNumero
 }
 
 Deno.test("test champ vide", () => {
