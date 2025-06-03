@@ -19,5 +19,5 @@ Deno.test("test champ vide", () => {
 
 Deno.test("test une seule ligne avec une seule mine", () => {
     let champ = "...*..";
-    assertEquals(minesweeper(champ), "000100");
+    assertEquals(minesweeper(champ), "001*10");
 });
