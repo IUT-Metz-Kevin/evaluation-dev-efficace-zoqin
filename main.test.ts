@@ -38,7 +38,7 @@ function minesweeper(champ: string) {
         }
         
     }
-    
+    console.log(champNumero)
     return champNumero
 }
 
