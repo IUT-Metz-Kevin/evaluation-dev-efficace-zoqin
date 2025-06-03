@@ -2,7 +2,7 @@ import { assertEquals } from "jsr:@std/assert";
 
 
 //FUNCTION
-function minesweeper(champ: string) {
+function conversionChampVersMatrice(champ: string): string[][] {
     let champMatrice: string[][] = []
 
     let tableTemporaire: string[] = []
@@ -17,6 +17,25 @@ function minesweeper(champ: string) {
     }
 
     champMatrice.push(tableTemporaire)
+    return champMatrice
+}
+
+function minesweeper(champ: string) {
+    // let champMatrice: string[][] = []
+
+    // let tableTemporaire: string[] = []
+
+    // for (let c of champ) {
+    //     if (c !== "\n") {
+    //         tableTemporaire.push(c)
+    //     } else {
+    //         champMatrice.push(tableTemporaire)
+    //         tableTemporaire = []
+    //     }
+    // }
+
+    // champMatrice.push(tableTemporaire)
+    let champMatrice = conversionChampVersMatrice(champ)
 
     //console.log(champMatrice)
 
