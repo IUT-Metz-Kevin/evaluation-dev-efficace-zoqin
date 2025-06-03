@@ -32,13 +32,36 @@ function minesweeper(champ: string) {
                 //console.log(champTable[i])
 
                 tableConversionTemporaire.push(0)
-
+                if(champMatrice[y-1]){
+                    if(champMatrice[y-1][x-1] === "*") {
+                        tableConversionTemporaire[x] += 1
+                    }
+                    if(champMatrice[y-1][x] === "*") {
+                        tableConversionTemporaire[x] += 1
+                    }
+                    if(champMatrice[y-1][x+1] === "*") {
+                        tableConversionTemporaire[x] += 1
+                    }
+                }
+                
                 if (champMatrice[y][x + 1] === "*") {
                     tableConversionTemporaire[x] += 1
                 }
-
+                
                 if (champMatrice[y][x - 1] === "*") {
                     tableConversionTemporaire[x] += 1
+                }
+
+                if(champMatrice[y+1]) {
+                    if(champMatrice[y+1][x-1] === "*") {
+                        tableConversionTemporaire[x] += 1
+                    }
+                    if(champMatrice[y+1][x] === "*") {
+                        tableConversionTemporaire[x] += 1
+                    }
+                    if(champMatrice[y+1][x+1] === "*") {
+                        tableConversionTemporaire[x] += 1
+                    }
                 }
 
             } else if (champMatrice[y][x] === "*") {
@@ -50,6 +73,8 @@ function minesweeper(champ: string) {
     }
 
     console.log(matriceConversion)
+
+
 
     let champNumero = ""
 
@@ -64,45 +89,7 @@ function minesweeper(champ: string) {
         champNumero += "\n"
     }
 
-    return champNumero.slice(0,champNumero.length-1)
-
-    let tableConversion: number[] = []
-
-    for (let i = 0; i < champ.length; i++) {
-        if (champ[i] === ".") {
-            //console.log(champTable[i])
-
-            tableConversion.push(0)
-
-            if (champ[i + 1] === "*") {
-                tableConversion[i]++
-            }
-
-            if (champ[i - 1] === "*") {
-                tableConversion[i]++
-            }
-
-        } else if (champ[i] === "*") {
-            tableConversion.push(-1);
-        } else {
-            tableConversion.push(-2);
-        }
-    }
-
-    console.log(tableConversion)
-
-    for (let element of tableConversion) {
-        if (element === -1) {
-            champNumero += "*"
-        } else if (element === -2) {
-            champNumero += "\n"
-        } else {
-            champNumero += element.toString()
-        }
-
-    }
-    console.log(champNumero)
-    return champNumero
+    return champNumero.slice(0, champNumero.length-1)
 }
 
 
