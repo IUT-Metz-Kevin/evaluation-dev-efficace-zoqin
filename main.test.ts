@@ -21,20 +21,7 @@ function conversionChampVersMatrice(champ: string): string[][] {
 }
 
 function minesweeper(champ: string) {
-    // let champMatrice: string[][] = []
 
-    // let tableTemporaire: string[] = []
-
-    // for (let c of champ) {
-    //     if (c !== "\n") {
-    //         tableTemporaire.push(c)
-    //     } else {
-    //         champMatrice.push(tableTemporaire)
-    //         tableTemporaire = []
-    //     }
-    // }
-
-    // champMatrice.push(tableTemporaire)
     let champMatrice = conversionChampVersMatrice(champ)
 
     //console.log(champMatrice)
