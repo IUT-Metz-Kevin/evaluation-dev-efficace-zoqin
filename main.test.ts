@@ -161,13 +161,17 @@ Deno.test("test trois ligne avec bombe en diagonale", () => {
     assertEquals(minesweeper(champ), "01*210\n012*21\n0012*1");
 });
 
+Deno.test("test trois ligne avec une cellule entouré de bombe", () => {
+    let champ = ".***..\n.*.*..\n.***..";
+    assertEquals(minesweeper(champ), "2***20\n3*8*30\n2***20");
+});
 
 
 
-// ..*...
-// ...*..
-// ....*.
+// .***..
+// .*.*..
+// .***..
 
-// 01*210
-// 012*21
-// 0012*1
+// 2***20
+// 3*8*30
+// 2***20
